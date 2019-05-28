@@ -1,0 +1,10 @@
+FROM centos:7
+ARG WAVEFORM
+ADD localrepo.tar.gz /usr/local/share/
+COPY ./repofiles/ /etc/yum.repos.d/
+RUN yum -y install epel-release
+RUN yum clean all
+RUN yum -y install omniORB-servers $WAVEFORM
+COPY runWaveform.py /usr/local/bin
+COPY runWaveform.sh /usr/local/bin
+ENTRYPOINT ["/usr/local/bin/runWaveform.sh"]

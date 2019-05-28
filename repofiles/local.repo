@@ -1,0 +1,5 @@
+[localrepo]
+name=localrepo
+baseurl=file:///usr/local/share/localrepo
+gpgcheck=0
+
